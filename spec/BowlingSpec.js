@@ -24,4 +24,10 @@ describe("Bowling", function() {
     });
   });
 
+  describe("gutter game", function() {
+    it("rolls 0, 20 times", function() {
+      for (var i = 1; i < 21; i++) bowling.roll(0);
+      expect(bowling.currentScore()).toEqual(0);
+    });
+  });
 });
