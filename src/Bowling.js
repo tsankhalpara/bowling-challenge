@@ -15,13 +15,18 @@ Bowling.prototype.score = function () {
   var result = 0;
   var rollIndex = 0;
   for (var i = 0; i < 10; i++) {
-    if(this.rolls[rollIndex] + this.rolls[rollIndex + 1] == 10) {
+    if(this.rolls[rollIndex] == 10) {
       result += this.rolls[rollIndex] + this.rolls[rollIndex + 1] +
       this.rolls[rollIndex + 2];
+      rollIndex += 1;
+    } else if(this.rolls[rollIndex] + this.rolls[rollIndex + 1] == 10) {
+      result += this.rolls[rollIndex] + this.rolls[rollIndex + 1] +
+      this.rolls[rollIndex + 2];
+      rollIndex += 2;
     } else {
       result += this.rolls[rollIndex] + this.rolls[rollIndex + 1];
+      rollIndex += 2;
       }
-    rollIndex += 2;
   }
   return result;
 };

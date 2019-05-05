@@ -42,10 +42,20 @@ describe("Bowling", function() {
       bowling.roll(2);
       rollMany(0,17);
       expect(bowling.score()).toEqual(14);
-    })
-  })
+    });
+  });
+
+  describe("roll a strike", function() {
+    it("rolls 10 then add bonus score", function() {
+      bowling.roll(10);
+      bowling.roll(4);
+      bowling.roll(3);
+      rollMany(0,16);
+      expect(bowling.score()).toEqual(24);
+    });
+  });
 
   var rollMany = function(number, rolls) {
     for (var i = 0; i < rolls; i++) { bowling.roll(number);}
-  }
+  };
 });
