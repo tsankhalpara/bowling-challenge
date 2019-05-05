@@ -55,6 +55,13 @@ describe("Bowling", function() {
     });
   });
 
+  describe("perfect game", function() {
+    it("rolls 10, 12 times", function() {
+      rollMany(10,12);
+      expect(bowling.score()).toEqual(300);
+    });
+  });
+
   var rollMany = function(number, rolls) {
     for (var i = 0; i < rolls; i++) { bowling.roll(number);}
   };
