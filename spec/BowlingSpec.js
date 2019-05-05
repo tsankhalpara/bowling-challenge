@@ -24,9 +24,26 @@ describe("Bowling", function() {
   describe("gutter game", function() {
     it("rolls 0, 20 times", function() {
       rollMany(0,20);
-      expect(bowling.score).toEqual(0);
+      expect(bowling.score()).toEqual(0);
     });
   });
+
+  describe("roll all ones", function() {
+    it("rolls 1, 20 times", function() {
+      rollMany(1,20);
+      expect(bowling.score()).toEqual(20);
+    });
+  });
+
+  describe("roll a spare", function() {
+    it("rolls 10 then add bonus roll score", function() {
+      bowling.roll(4);
+      bowling.roll(6);
+      bowling.roll(2);
+      rollMany(0,17);
+      expect(bowling.score()).toEqual(14);
+    })
+  })
 
   var rollMany = function(number, rolls) {
     for (var i = 0; i < rolls; i++) { bowling.roll(number);}

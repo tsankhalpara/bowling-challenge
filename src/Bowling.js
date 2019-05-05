@@ -1,5 +1,4 @@
 function Bowling() {
-  this.score = 0;
   this.rolls = [];
   this.gameover = false;
 };
@@ -13,11 +12,17 @@ Bowling.prototype.roll = function (number) {
 };
 
 Bowling.prototype.score = function () {
-  var result = 0
-  for (var i = 0; i < 20; i++) {
-    result += this.rolls[i];
+  var result = 0;
+  var rollIndex = 0;
+  for (var i = 0; i < 10; i++) {
+    if(this.rolls[rollIndex] + this.rolls[rollIndex + 1] == 10) {
+      result += this.rolls[rollIndex] + this.rolls[rollIndex + 1] +
+      this.rolls[rollIndex + 2];
+    } else {
+      result += this.rolls[rollIndex] + this.rolls[rollIndex + 1];
+      }
+    rollIndex += 2;
   }
-  this.score += result;
   return result;
 };
 
