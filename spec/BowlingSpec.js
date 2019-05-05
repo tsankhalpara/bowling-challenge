@@ -7,7 +7,7 @@ describe("Bowling", function() {
 
   describe("roll", function() {
     it("throws error when no more rolls available", function() {
-      for (var i = 0; i < 20; i++) bowling.roll(0);
+      rollMany(0,20);
       expect(bowling.roll(4)).toEqual("no more rolls available");
     });
   });
@@ -15,7 +15,7 @@ describe("Bowling", function() {
 
   describe("Game over", function() {
     it("returns true when the game is over", function() {
-      for (var i = 0; i < 20; i++) bowling.roll(0);
+      rollMany(0,20);
       bowling.endgame();
       expect(bowling.gameover).toEqual(true);
     })
@@ -23,10 +23,12 @@ describe("Bowling", function() {
 
   describe("gutter game", function() {
     it("rolls 0, 20 times", function() {
-      for (var i = 1; i < 21; i++) { bowling.roll(0);}
+      rollMany(0,20);
       expect(bowling.score).toEqual(0);
     });
   });
 
-
+  var rollMany = function(number, rolls) {
+    for (var i = 0; i < rolls; i++) { bowling.roll(number);}
+  }
 });
