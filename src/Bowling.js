@@ -1,7 +1,7 @@
 function Bowling() {
   this.score = 0;
   this.frame = 1;
-  this.rollcount = 0;
+  this.rollCount = 0;
   this.rolls = [];
   this.gameover = false;
 };
@@ -45,9 +45,9 @@ Bowling.prototype.increaseRollNo = function(number){
 };
 
 Bowling.prototype.endgame = function () {
-  if (this.rolls.length < 20) {
-    this.gameover = false;
-  } else {
+  if (this.frame === 11) {
     this.gameover = true;
+  } else {
+    this.gameover = false;
   }
 };

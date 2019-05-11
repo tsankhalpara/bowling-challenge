@@ -14,24 +14,33 @@ describe("Bowling", function() {
       rollMany(4,2);
       expect(bowling.rolls).toEqual([4,4]);
     });
+    it("increases roll count", function() {
+      bowling.roll(5);
+      expect(bowling.rollCount).toEqual(1);
+    })
+    it("increases roll count by 2 when you get a strike", function() {
+      bowling.roll(10);
+      expect(bowling.rollCount).toEqual(2);
+    })
+
   });
 
   describe("Start of game", function() {
     it("has score = 0", function() {
       expect(bowling.score).toEqual(0);
     });
-    it("is on the first frame", function() {
+    it("starts on the first frame", function() {
       expect(bowling.frame).toEqual(1);
     });
     it("starts on zero roll count", function() {
-      expect(bowling.rollcount).toEqual(0);
+      expect(bowling.rollCount).toEqual(0);
     });
   });
 
 
   describe("Game over", function() {
     it("returns true when the game is over", function() {
-      rollMany(0,20);
+      bowling.frame = 11;
       bowling.endgame();
       expect(bowling.gameover).toEqual(true);
     })
