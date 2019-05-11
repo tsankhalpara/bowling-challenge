@@ -7,8 +7,12 @@ describe("Bowling", function() {
 
   describe("roll", function() {
     it("throws error when no more rolls available", function() {
-      rollMany(0,20);
+      rollMany(0,22);
       expect(bowling.roll(4)).toEqual("no more rolls available");
+    });
+    it("saves rolls", function() {
+      rollMany(4,2);
+      expect(bowling.rolls).toEqual([4,4]);
     });
   });
 

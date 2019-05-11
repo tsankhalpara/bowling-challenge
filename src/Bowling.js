@@ -4,7 +4,7 @@ function Bowling() {
 };
 
 Bowling.prototype.roll = function (number) {
-  if (this.rolls.length < 20) {
+  if (this.rolls.length < 22) {
   this.rolls.push(number);
 } else {
   return "no more rolls available"
