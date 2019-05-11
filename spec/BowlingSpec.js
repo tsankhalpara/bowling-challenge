@@ -16,6 +16,18 @@ describe("Bowling", function() {
     });
   });
 
+  describe("Start of game", function() {
+    it("has score = 0", function() {
+      expect(bowling.score).toEqual(0);
+    });
+    it("is on the first frame", function() {
+      expect(bowling.frame).toEqual(1);
+    });
+    it("starts on zero roll count", function() {
+      expect(bowling.rollcount).toEqual(0);
+    });
+  });
+
 
   describe("Game over", function() {
     it("returns true when the game is over", function() {
@@ -28,14 +40,14 @@ describe("Bowling", function() {
   describe("gutter game", function() {
     it("rolls 0, 20 times", function() {
       rollMany(0,20);
-      expect(bowling.score()).toEqual(0);
+      expect(bowling.totalscore()).toEqual(0);
     });
   });
 
   describe("roll all ones", function() {
     it("rolls 1, 20 times", function() {
       rollMany(1,20);
-      expect(bowling.score()).toEqual(20);
+      expect(bowling.totalscore()).toEqual(20);
     });
   });
 
@@ -45,7 +57,7 @@ describe("Bowling", function() {
       bowling.roll(6);
       bowling.roll(2);
       rollMany(0,17);
-      expect(bowling.score()).toEqual(14);
+      expect(bowling.totalscore()).toEqual(14);
     });
   });
 
@@ -55,14 +67,14 @@ describe("Bowling", function() {
       bowling.roll(4);
       bowling.roll(3);
       rollMany(0,16);
-      expect(bowling.score()).toEqual(24);
+      expect(bowling.totalscore()).toEqual(24);
     });
   });
 
   describe("perfect game", function() {
     it("rolls 10, 12 times", function() {
       rollMany(10,12);
-      expect(bowling.score()).toEqual(300);
+      expect(bowling.totalscore()).toEqual(300);
     });
   });
 
