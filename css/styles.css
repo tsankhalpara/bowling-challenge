@@ -22,3 +22,12 @@ th {
 td {
   text-align: center;
 }
+
+button {
+  padding: 3px 5px 3px 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: 'Raleway', sans-serif;
+  background-color: rgba(0,0,0, 0.5);
+  color: white;
+}
